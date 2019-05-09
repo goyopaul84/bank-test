@@ -8,14 +8,14 @@ class Printer
   end
 
   def add_transactions(account = Account.new)
-    @transactions << [account.payment_dates[0], account.payment_amounts[0], account.balances[0]]
+    counter = 0
+    while counter < (account.payment_dates.length) do
+    @transactions.push([account.payment_dates[counter], account.payment_amounts[counter], account.balances[counter]])
+    counter += 1
+    end
   end
 
   def first_line
     puts "date || credit || debit || balance"
-  end
-
-  def show_transactions
-
   end
 end
