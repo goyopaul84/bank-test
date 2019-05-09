@@ -40,7 +40,6 @@ describe Account do
         account6.add_payment("10-01-2012", 1000)
         account6.add_payment("13-01-2012", 2000)
         account6.add_payment("14-01-2012", -500)
-        p account6
         expect(account6.balances[-1]).to eq(2500)
         end
       end
