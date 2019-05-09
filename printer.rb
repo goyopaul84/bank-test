@@ -8,7 +8,7 @@ class Printer
   end
 
   def add_transactions(account = Account.new)
-    @transactions << account.payment_dates[0]
+    @transactions << [account.payment_dates[0], account.payment_amounts[0], account.balances[0]]
   end
 
   def first_line
