@@ -13,10 +13,6 @@ class Account
   end
 
   def calculate_balance
-    if @balances.length == 0
-      @balances.push(@payment_amounts[-1])
-    else
-      @balances.push(@balances[-1] + @payment_amounts[-1])
-    end
+    @balances.empty? ? @balances.push(@payment_amounts[-1]) : @balances.push(@balances[-1] + @payment_amounts[-1])
   end
 end
