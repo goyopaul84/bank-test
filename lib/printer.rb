@@ -1,4 +1,4 @@
-require './account.rb'
+require 'account'
 
 class Printer
   attr_reader :transactions
@@ -21,11 +21,11 @@ class Printer
 
   def show_transactions
     puts first_line
-    @transactions.reverse.each do |transaction|
+    @transactions.reverse_each do |transaction|
       if transaction[1] < 0
-        puts "#{transaction[0]} || || #{sprintf('%.2f', transaction[1] * -1)} || #{sprintf('%.2f', transaction[2])}"
+        puts "#{transaction[0]} || || #{format('%.2f', transaction[1] * -1)} || #{format('%.2f', transaction[2])}"
       else
-        puts "#{transaction[0]} || #{sprintf('%.2f', transaction[1])}  || || #{sprintf('%.2f', transaction[2])}"
+        puts "#{transaction[0]} || #{format('%.2f', transaction[1])}  || || #{format('%.2f', transaction[2])}"
       end
     end
   end

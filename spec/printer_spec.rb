@@ -1,18 +1,15 @@
-require './printer.rb'
-require './account.rb'
+require 'printer.rb'
+require 'account.rb'
 
 describe Printer do
-  account = Account.new
-  account.add_payment('10-01-2012', 1000.00)
-  printer = Printer.new
-  specify { expect { printer.first_line }.to output.to_stdout }
 
   it 'adds date, amount and balance of one transaction correctly to Printer' do
-    account1 = Account.new
-    account1.add_payment('10-01-2012', 1000.00)
+    account1 = double
+    allow(account1).to receive(:payment_dates)
+    allow(account1).to receive(:payment_amounts)
+    allow(account1).to receive(:balances)
     printer1 = Printer.new
-    printer1.add_transactions(account1)
-    expect(printer1).to have_attributes(transactions: [['10-01-2012', 1000.00, 1000.00]])
+    expect(printer1).to have_attributes(:transactions)
   end
 
   it 'adds date, amount and balance of two credits correctly to Printer' do

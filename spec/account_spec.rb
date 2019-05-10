@@ -1,8 +1,8 @@
-require './account.rb'
+require 'account'
 
 describe Account do
   it 'the account has the first transaction' do
-    account = double("fake account")
+    account = double('fake account')
     allow(account).to receive_messages(payment_dates: ['10-01-2012'], payment_amounts: [1000.00])
     expect(account.payment_dates).to eq(['10-01-2012'])
     expect(account.payment_amounts).to eq([1000.00])
